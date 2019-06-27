@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include gilton *.css
+recursive-include gilton *.csv
+recursive-include gilton *.html
+recursive-include gilton *.ico
+recursive-include gilton *.js
+recursive-include gilton *.json
+recursive-include gilton *.md
+recursive-include gilton *.png
+recursive-include gilton *.py
+recursive-include gilton *.svg
+recursive-include gilton *.txt
+recursive-exclude gilton *.pyc
