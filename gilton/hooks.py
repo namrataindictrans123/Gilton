@@ -120,3 +120,19 @@ app_license = "MIT"
 # 	"frappe.desk.doctype.event.event.get_events": "gilton.event.get_events"
 # }
 
+
+
+fixtures=['Custom Field','Property Setter','Role','Print Format']
+
+
+doc_events = {
+"Customer": {
+ "validate":"gilton.Customization.Customer.user.create_user"
+}
+}
+
+
+doctype_js = {
+		"Customer" :["custom/customer.js"]
+	}
+
