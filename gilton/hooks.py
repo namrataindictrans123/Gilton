@@ -135,4 +135,3 @@ doc_events = {
 doctype_js = {
 		"Customer" :["custom/customer.js"]
 	}
-
