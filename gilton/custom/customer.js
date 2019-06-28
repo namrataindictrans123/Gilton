@@ -3,6 +3,12 @@ frappe.ui.form.on('Customer', {
 
 		console.log("Hello world Thank you. Indictrans")
 
+	},
+
+
+
+	validate: function(frm){
+		frm.set_value("user_name", frm.doc.email)
 	}
 
 });
