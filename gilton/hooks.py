@@ -127,7 +127,7 @@ fixtures=['Custom Field','Property Setter','Role','Print Format']
 
 doc_events = {
 "Customer": {
- "validate":"gilton.Customization.Customer.user.create_user"
+ "validate":"gilton.gilton.Customization.Customer.user.create_user"
 }
 }
 
