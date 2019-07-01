@@ -3,6 +3,7 @@ import frappe
 
 
 def create_user(doc,method=None):
+
    new_cus = frappe.new_doc("User")
    new_cus.email=doc.email
    new_cus.username=doc.email
