@@ -16,3 +16,8 @@ def create_user(doc,method=None):
    	new_cus.first_name = full_name[0]
    new_cus.insert()
    frappe.db.commit()
+
+
+def country_dep_currency(doc,method=None):
+   print("Country dep Currency called//////////////")
+   # curr=frappe.db.get_value("")

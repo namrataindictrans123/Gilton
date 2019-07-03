@@ -1,0 +1,42 @@
+{
+ "add_total_row": 0, 
+ "creation": "2019-07-01 17:12:15.922019", 
+ "disable_prepared_report": 0, 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "modified": "2019-07-01 18:00:14.680175", 
+ "modified_by": "Administrator", 
+ "module": "Gilton", 
+ "name": "Customer List", 
+ "owner": "Administrator", 
+ "prepared_report": 0, 
+ "ref_doctype": "Customer", 
+ "report_name": "Customer List", 
+ "report_type": "Script Report", 
+ "roles": [
+  {
+   "role": "Sales User"
+  }, 
+  {
+   "role": "Sales Manager"
+  }, 
+  {
+   "role": "Sales Master Manager"
+  }, 
+  {
+   "role": "Stock User"
+  }, 
+  {
+   "role": "Stock Manager"
+  }, 
+  {
+   "role": "Accounts User"
+  }, 
+  {
+   "role": "Accounts Manager"
+  }
+ ]
+}
