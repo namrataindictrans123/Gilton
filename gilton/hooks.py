@@ -128,13 +128,12 @@ fixtures=['Custom Field','Property Setter','Role','Print Format']
 doc_events = {
 "Customer": {
  "validate":"gilton.gilton.Customization.Customer.user.create_user"
-},
-"Delivery Note":{
-"validate":"gilton.gilton.Customization.Delivery_Note.delivery_note.submit"
 }
 }
+
 
 
 doctype_js = {
-		"Customer" :["custom/customer.js"]
+		"Customer" :["custom/customer.js"],
+		"Quotation":["custom/quotation.js"]
 	}
