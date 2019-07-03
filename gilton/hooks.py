@@ -129,6 +129,10 @@ doc_events = {
 "Customer": {
  "validate":"gilton.gilton.Customization.Customer.user.create_user"
 },
+"Delivery Note":{
+"validate":"gilton.gilton.Customization.Delivery_Note.delivery_note.submit",
+"on_submit":"gilton.gilton.Customization.Delivery_Note.delivery_note.on_submit"
+},
 "Quotation": {
  "on_submit":"gilton.gilton.Customization.Customer.quotation.on_submit"
 
@@ -138,5 +142,6 @@ doc_events = {
 
 doctype_js = {
 		"Customer" :["custom/customer.js"],
-		"Quotation":["custom/quotation.js"]
+		"Quotation":["custom/quotation.js"],
+        "Delivery Note":["custom/deliverynote.js"]
 	}

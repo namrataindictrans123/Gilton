@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 import frappe
+import urllib2
 
 
 def create_user(doc,method=None):
-
+   
    new_cus = frappe.new_doc("User")
    new_cus.email=doc.email_address
    new_cus.username=doc.email_address
