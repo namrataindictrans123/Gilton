@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 import frappe
+import urllib2
 
 
 def create_user(doc,method=None):
-
+   
    new_cus = frappe.new_doc("User")
    new_cus.email=doc.email_address
    new_cus.username=doc.email_address
@@ -16,3 +17,8 @@ def create_user(doc,method=None):
    	new_cus.first_name = full_name[0]
    new_cus.insert()
    frappe.db.commit()
+
+@frappe.whitelist()
+def country_dep_currency(method=None):
+   print("Country dep Currency called//////////////")
+   # curr=frappe.db.get_value("")

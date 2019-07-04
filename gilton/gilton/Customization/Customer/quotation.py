@@ -1,7 +1,15 @@
+from __future__ import unicode_literals
+import frappe
 
 
 
-def send_email_with_attachment(doctype, docname, email_address):
-	frappe.msgprint("Mail sent")
-	attachments = [frappe.attach_print(doctype=doctype, name=docname, print_letterhead=True)]
-	frappe.sendmail(recipients = recipients, cc = recipients, sender="", subject=docname, message="", delayed=False, attachments=attachments )
+def on_submit(doc,method=None):
+	frappe.msgprint("mail sent")
+	attachments=[frappe.attach_print(doc.doctype,doc.name, print_letterhead=True)]
+	frappe.sendmail(
+		recipients=[doc.email_address],
+		subject="Regarding Quotation.....",
+		message='Your Quotation is attached ,please find attachment',
+		attachments=attachments
+		)
+
