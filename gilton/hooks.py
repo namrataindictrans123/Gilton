@@ -150,3 +150,5 @@ doctype_js = {
 "Quotation":["custom/quotation.js"],
         "Delivery Note":["custom/deliverynote.js"]
 }
+
+
