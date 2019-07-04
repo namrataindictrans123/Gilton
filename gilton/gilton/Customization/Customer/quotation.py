@@ -1,4 +1,7 @@
-def send_email_with_attachment(doctype, docname, recipients):
-     attachments = [frappe.attach_print(doctype=doctype, name=docname, print_letterhead=True)]
-     if attachments and recipients:
-         frappe.sendmail(recipients = recipients, cc = recipients, sender="", subject=docname, message="", delayed=False, attachments=attachments )
+
+
+
+def send_email_with_attachment(doctype, docname, email_address):
+	frappe.msgprint("Mail sent")
+	attachments = [frappe.attach_print(doctype=doctype, name=docname, print_letterhead=True)]
+	frappe.sendmail(recipients = recipients, cc = recipients, sender="", subject=docname, message="", delayed=False, attachments=attachments )
