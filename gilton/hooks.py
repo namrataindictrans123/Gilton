@@ -133,12 +133,7 @@ doc_events = {
 "Sales Order" : {
 	"validate":"gilton.gilton.Customization.Sales Order.sales_order.check_availability"
 }
-}
 
-doctype_js={
-		"Customer" :["custom/customer.js"]
- 	}
-{
 "Delivery Note":{
 "validate":"gilton.gilton.Customization.Delivery_Note.delivery_note.submit",
 "on_submit":"gilton.gilton.Customization.Delivery_Note.delivery_note.on_submit"
