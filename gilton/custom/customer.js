@@ -8,7 +8,7 @@ frappe.ui.form.on('Customer', {
 	validate: function(frm){
 		frm.set_value("user_name", frm.doc.email_address)
 	},
-
+	
 	country: function(frm){
 		if (frm.doc.country == "United Kingdom")
 		{
@@ -31,3 +31,4 @@ frappe.ui.form.on('Customer', {
 	}
 
 });
+ 
