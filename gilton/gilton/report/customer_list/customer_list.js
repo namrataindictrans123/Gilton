@@ -5,16 +5,15 @@
 frappe.query_reports["Customer List"] = {
 	"filters": [
 	   {
-            "fieldname":"creation",
+            "fieldname":"from_date",
 			"label":("From Date"),
 			"fieldtype":"Date",
 			 
         },
         {
-			"fieldname":"modified",
+			"fieldname":"to_date",
 			"label":("To Date"),
-			"fieldtype":"Date",
-			  
+			"fieldtype": "Date",
 		},
 		{
             "fieldname":"customer_name",
@@ -23,7 +22,7 @@ frappe.query_reports["Customer List"] = {
 			"options":"Customer",
 			"default":frappe.defaults.get_user_default("Customer"),
 			
-        } 
+        }  
 
 	]
 }

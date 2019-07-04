@@ -11,44 +11,74 @@ def execute(filters=None):
 	print("------------------------------------------")
 	print(data)
 	print("------------------------------------------")
-	# validate_filters(filters)
 	return columns, data
 
 def get_data(filters):
 	query_data = frappe.db.sql("""
 		select  
-			customer_name,email_address 
+			title,name,creation 
 		from 
-			`tabCustomer`
+			`tabQuotation`
 		where {0}	
 			""".format(validate_filters(filters)),debug=1)
 
-	return query_data
+	return query_data	
 
 def validate_filters(filters):
-	# if filters.creation > filters.modified:
-	# 	frappe.throw((" 'creation' cannot not be greater than 'modified' "))
-	cond = '1 = 1' 
+	conditions = '1 = 1' 
+	if filters.get("from_date"): 
+		conditions += " and creation >= '{}'".format(filters.get("from_date"))
+	if filters.get("to_date"): 
+		conditions += " and creation <= '{}'".format(filters.get("to_date"))
+
 	if filters.get('customer_name'):
-		cond += " and customer_name = '{0}'".format(filters.get('customer_name'))
-	return cond	
+		conditions += " and customer_name = '{0}'".format(filters.get('customer_name'))
+	print("///////////////",conditions)
+	return conditions	
 
 def get_columns():
 	
 	return [
 		{
-			"fieldname": "cust",
-			"label": _("Cust Name"),
+			"fieldname": "title",
+			"label": _("Customer Name"),
 			"fieldtype": "Link",
-			"options": "Customer",
+			"options": "Qutation",
 			"width": 110
 		},
 		{
-			"fieldname": "email_address",
-			"label": _("Email Id"),
+			"fieldname": "name",
+			"label": _("Qutation No"),
 			"fieldtype": "Link",
-			"options": "Customer",
+			"options": "Qutation",
 			"width": 150
 		},
-		
+		{
+			"fieldname": "creation",
+			"label": _("Created Date"),
+			"fieldtype": "Link",
+			"options": "Qutation",
+			"width": 150
+		},
+		{
+			"fieldname": "",
+			"label": _("Sales Order No"),
+			"fieldtype": "Link",
+			"options": "Qutation",
+			"width": 150
+		},
+		{
+			"fieldname": "",
+			"label": _("Sales Invoice No"),
+			"fieldtype": "Link",
+			"options": "Qutation",
+			"width": 150
+		},
+		{
+			"fieldname": "",
+			"label": _("Delivery Note"),
+			"fieldtype": "Link",
+			"options": "Qutation",
+			"width": 150
+		},
 	]
