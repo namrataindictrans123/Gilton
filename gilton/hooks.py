@@ -129,11 +129,10 @@ doc_events = {
 "Customer": {
  "validate":"gilton.gilton.Customization.Customer.user.create_user"
  
-}
-"Sales Order" : {
+},
+"Sales Order": {
 "validate":"gilton.gilton.Customization.Sales Order.sales_order.check_availability"
-}
-
+},
 "Delivery Note":{
 "validate":"gilton.gilton.Customization.Delivery_Note.delivery_note.submit",
 "on_submit":"gilton.gilton.Customization.Delivery_Note.delivery_note.on_submit"
