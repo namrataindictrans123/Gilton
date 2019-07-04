@@ -15,10 +15,12 @@ def execute(filters=None):
 
 def get_data(filters):
 	query_data = frappe.db.sql("""
-		select  
-			title,name,creation 
-		from 
-			`tabQuotation`
+		select c.name,q.name,sa.name, si.name  
+		
+		from `tabCustomer` as c
+		join  `tabQuotation` as q on q.customer_name = c.name
+        join  `tabSales Order` as sa on sa.customer_name = c.name
+        join  `tabSales Invoice` as si on si.customer_name = c.name
 		where {0}	
 			""".format(validate_filters(filters)),debug=1)
 
@@ -27,12 +29,12 @@ def get_data(filters):
 def validate_filters(filters):
 	conditions = '1 = 1' 
 	if filters.get("from_date"): 
-		conditions += " and creation >= '{}'".format(filters.get("from_date"))
+		conditions += " and q.creation >= '{}'".format(filters.get("from_date"))
 	if filters.get("to_date"): 
-		conditions += " and creation <= '{}'".format(filters.get("to_date"))
+		conditions += " and q.creation <= '{}'".format(filters.get("to_date"))
 
 	if filters.get('customer_name'):
-		conditions += " and customer_name = '{0}'".format(filters.get('customer_name'))
+		conditions += " and c.customer_name = '{0}'".format(filters.get('customer_name'))
 	print("///////////////",conditions)
 	return conditions	
 
@@ -40,35 +42,28 @@ def get_columns():
 	
 	return [
 		{
-			"fieldname": "title",
+			"fieldname": "c.name",
 			"label": _("Customer Name"),
 			"fieldtype": "Link",
 			"options": "Qutation",
 			"width": 110
 		},
 		{
-			"fieldname": "name",
+			"fieldname": "title",
 			"label": _("Qutation No"),
 			"fieldtype": "Link",
 			"options": "Qutation",
 			"width": 150
 		},
 		{
-			"fieldname": "creation",
-			"label": _("Created Date"),
-			"fieldtype": "Link",
-			"options": "Qutation",
-			"width": 150
-		},
-		{
-			"fieldname": "",
+			"fieldname": "name",
 			"label": _("Sales Order No"),
 			"fieldtype": "Link",
 			"options": "Qutation",
 			"width": 150
 		},
 		{
-			"fieldname": "",
+			"fieldname": "si.name",
 			"label": _("Sales Invoice No"),
 			"fieldtype": "Link",
 			"options": "Qutation",
