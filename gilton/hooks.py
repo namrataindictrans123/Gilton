@@ -128,7 +128,6 @@ fixtures=['Custom Field','Property Setter','Role','Print Format']
 doc_events = {
 "Customer": {
  "validate":"gilton.gilton.Customization.Customer.user.create_user"
-<<<<<<< HEAD
  
 }
 "Sales Order" : {
@@ -139,9 +138,7 @@ doc_events = {
 doctype_js={
 		"Customer" :["custom/customer.js"]
  	}
-# doctype_js = {"Customer" : "custom/customer.js"}
-=======
-},
+{
 "Delivery Note":{
 "validate":"gilton.gilton.Customization.Delivery_Note.delivery_note.submit",
 "on_submit":"gilton.gilton.Customization.Delivery_Note.delivery_note.on_submit"
@@ -158,4 +155,4 @@ doctype_js = {
 		"Quotation":["custom/quotation.js"],
         "Delivery Note":["custom/deliverynote.js"]
 	}
->>>>>>> 25c62cbd0cad1a36809530ebdef4342bff63fb40
+
