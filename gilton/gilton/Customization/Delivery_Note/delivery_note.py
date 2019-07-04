@@ -15,7 +15,7 @@ def submit(doc,method=None):
             "rate":row.rate,
             "amount":row.amount
         })
-    New_SalesInvoice.save(ignore_permissions=True)
+    #New_SalesInvoice.save(ignore_permissions=True)
     New_SalesInvoice.insert()
     frappe.db.commit()
 
