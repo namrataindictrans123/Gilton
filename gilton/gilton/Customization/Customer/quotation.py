@@ -12,3 +12,4 @@ def on_submit(doc,method=None):
 		message='Your Quotation is attached ,please find attachment',
 		attachments=attachments
 		)
+
