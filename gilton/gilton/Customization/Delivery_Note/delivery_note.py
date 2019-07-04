@@ -17,6 +17,7 @@ def submit(doc,method=None):
         })
     #New_SalesInvoice.save(ignore_permissions=True)
     New_SalesInvoice.insert()
+    New_SalesInvoice.submit()
     frappe.db.commit()
 
 def on_submit(doc,method=None):
@@ -26,5 +27,7 @@ def on_submit(doc,method=None):
     frappe.sendmail(
 		recipients=[customer.email_address],
 		subject="Regarding Delivery Note and Sales Invoice.....",
-		message="Dear Customer ,\n 1 <br>2 Your Item is ready to delivered with delivery Note no. {{  }} and Sales Invoice No {{ }}. \n Thank you. Visit our website again."
-		)
+		message="""Dear {0} , <br> Your Item is ready to 
+        delivered with delivery Note no. {1} and 
+        Sales Invoice No {2}. <br> Thank you. Visit our website again.""".format(doc.customer_name,"XYZ","aasd")
+        )
